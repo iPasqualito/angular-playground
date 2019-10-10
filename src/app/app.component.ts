@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -11,10 +12,12 @@ export class AppComponent implements OnInit{
   form: FormGroup = new FormGroup({
     myInput: new FormControl(null, [Validators.required, Validators.email], []),
     naw: new FormGroup({
-      name: new FormControl(),
+      name: new FormControl('PAzz'),
       addresses: new FormArray([])
     }, [])
   });
+
+  constructor(private http: HttpClient) {}
 
   ngOnInit() {
 
@@ -26,6 +29,7 @@ export class AppComponent implements OnInit{
 
   submitForm(form){
     console.log(form.value);
+    this.http.post('', form.value).subscribe()
   }
 
 }
