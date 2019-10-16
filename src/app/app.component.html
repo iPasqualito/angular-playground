@@ -1,18 +1,5 @@
 <div class="container">
-  <div class="row">
-    <div class="col-12">
-      <div class="alert alert-warning text-center" [ngClass]="{error: form.get('myInput').invalid}">
-        Hallo
-      </div>
-    </div>
-  </div>
-</div>
+  <app-record-overview>
 
-
-<div class="container">
-  <span>{{form.get('myInput').value}}</span>
-  <form [formGroup]="form">
-      <input type="text" class="form-control" formControlName="myInput">
-      <button (click)="submitForm(form)" [disabled]="form.invalid">Submit</button>
-  </form>
+  </app-record-overview>
 </div>

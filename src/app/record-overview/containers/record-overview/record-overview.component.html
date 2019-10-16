@@ -1,0 +1,14 @@
+<div>
+  <record-count
+    [items]="records">
+  </record-count>
+  <div *ngFor="let record of records;">
+    {{ record.fullname }}
+  </div>
+  <record-detail
+    *ngFor="let record of records;"
+    [detail]="record"
+    (edit)="handleEdit($event)"
+    (remove)="handleRemove($event)">
+  </record-detail>
+</div>
