@@ -8,7 +8,7 @@ import {catchError} from 'rxjs/operators';
 
 import {Record} from './models/record.interface';
 
-const RECORD_API = '/records';
+const RECORD_API = 'http://localhost:3000/records';
 
 @Injectable({
   providedIn: 'root'
@@ -19,10 +19,9 @@ export class RecordOverviewService {
 
   }
 
-  getRecords(): Observable<any> {
+  getRecords(): Observable<Record[]> {
     return this.http
       .get<Record[]>(RECORD_API);
-      // .pipe(map((response: HttpResponse<string>) => response.json()));
   }
 
   // getRecord(id: number): Observable<Record> {

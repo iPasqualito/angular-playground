@@ -1,14 +1,24 @@
-<div>
+<div class="container">
   <record-count
     [items]="records">
   </record-count>
-  <div *ngFor="let record of records;">
-    {{ record.fullname }}
-  </div>
-  <record-detail
-    *ngFor="let record of records;"
-    [detail]="record"
-    (edit)="handleEdit($event)"
-    (remove)="handleRemove($event)">
-  </record-detail>
+  {{records[0] | json}}
+  <input type="text" class="form-control" [formControl]="search">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">Artist</th>
+      <th scope="col">Title</th>
+      <th scope="col">Label</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let record of filteredRecords">
+      <td>{{record.Artist}}</td>
+      <td>{{record.Title}}</td>
+      <td>{{record.Label}}</td>
+    </tr>
+    </tbody>
+  </table>
+
 </div>

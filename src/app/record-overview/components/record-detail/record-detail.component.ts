@@ -4,12 +4,8 @@ import { Record } from '../../models/record.interface';
 
 @Component({
   selector: 'record-detail',
-  styleUrls: ['record-detail.component.scss'],
-  template: `
-    <div>
-        {{ detail | json }}
-    </div>
-  `
+  styleUrls: ['./record-detail.component.scss'],
+  templateUrl: './record.detail.component.html'
 })
 export class RecordDetailComponent implements OnChanges {
 
